@@ -34,7 +34,8 @@ class _DrawerNavigatonState extends State<DrawerNavigaton> {
                         category: category['name'],
                       ))),
           child: ListTile(
-            title: Text(category['name']),
+            title: Text(category['name'],
+                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25)),
           ),
         ));
       });
@@ -50,25 +51,38 @@ class _DrawerNavigatonState extends State<DrawerNavigaton> {
         child: ListView(
           children: <Widget>[
             UserAccountsDrawerHeader(
-              accountName: Text('Health Monitoring app'),
+              accountName: Text('Health Monitoring app',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25)),
               decoration: BoxDecoration(color: Colors.green),
               accountEmail: null,
             ),
             ListTile(
-              leading: Icon(Icons.view_list),
-              title: Text('Categories'),
+              leading: Icon(
+                Icons.view_list,
+                size: 30,
+              ),
+              title: Text('Categories',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25)),
               onTap: () => Navigator.of(context).push(
                   MaterialPageRoute(builder: (context) => CategoriesScreen())),
             ),
             ListTile(
-              leading: Icon(Icons.home),
-              title: Text('Home'),
+              leading: Icon(
+                Icons.home,
+                size: 30,
+              ),
+              title: Text('Home',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25)),
               onTap: () => Navigator.of(context)
                   .push(MaterialPageRoute(builder: (context) => HomeScreen())),
             ),
             ListTile(
-              leading: Icon(Icons.favorite),
-              title: Text('Heart Pulse'),
+              leading: Icon(
+                Icons.favorite,
+                size: 30,
+              ),
+              title: Text('Heart Pulse',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25)),
               onTap: () => Navigator.of(context)
                   .push(MaterialPageRoute(builder: (context) => HeartPulse())),
             ),
