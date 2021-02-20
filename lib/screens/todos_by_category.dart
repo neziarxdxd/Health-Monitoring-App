@@ -6,8 +6,7 @@ class TodosByCategory extends StatefulWidget {
   final String category;
 
   TodosByCategory({this.category});
-// ignore: todo
-// TODO : dfdkfdk
+
   @override
   _TodosByCategoryState createState() => _TodosByCategoryState();
 }
