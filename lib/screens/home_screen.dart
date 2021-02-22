@@ -4,6 +4,7 @@ import 'package:healthmonitor/helpers/drawer_navigation.dart';
 import 'package:healthmonitor/models/todo.dart';
 import 'package:healthmonitor/screens/todo_screen.dart';
 import 'package:healthmonitor/services/todo_service.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -14,11 +15,38 @@ class _HomeScreenState extends State<HomeScreen> {
   TodoService _todoService;
 
   List<Todo> _todoList = List<Todo>();
-
+  FlutterLocalNotificationsPlugin fltrNotification;
   @override
   initState() {
     super.initState();
     getAllTodos();
+    var androidInitilize = new AndroidInitializationSettings('app_icon');
+    var iOSinitilize = new IOSInitializationSettings();
+    var initilizationsSettings =
+        new InitializationSettings(android: androidInitilize);
+    fltrNotification = new FlutterLocalNotificationsPlugin();
+    fltrNotification.initialize(initilizationsSettings,
+        onSelectNotification: notificationSelected);
+  }
+
+  Future _showNotification() async {
+    var androidDetails = new AndroidNotificationDetails(
+        "Channel ID", "Desi programmer", "This is my channel",
+        importance: Importance.max);
+    var generalNotificationDetails =
+        new NotificationDetails(android: androidDetails);
+    await fltrNotification.show(
+        0, "Task", "You created a Task", generalNotificationDetails,
+        payload: "Task");
+  }
+
+  Future notificationSelected(String payload) async {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        content: Text("Notification : $payload"),
+      ),
+    );
   }
 
   getAllTodos() async {
