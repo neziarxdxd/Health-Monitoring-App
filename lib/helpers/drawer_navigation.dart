@@ -3,6 +3,7 @@ import 'package:healthmonitor/screens/categories_screen.dart';
 import 'package:healthmonitor/screens/home_screen.dart';
 import 'package:healthmonitor/screens/todos_by_category.dart';
 import 'package:healthmonitor/screens/heart_pulse_screen.dart';
+import 'package:healthmonitor/screens/health_info.dart';
 import 'package:healthmonitor/services/category_service.dart';
 
 class DrawerNavigaton extends StatefulWidget {
@@ -92,7 +93,7 @@ class _DrawerNavigatonState extends State<DrawerNavigaton> {
               title: Text('Health Info',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25)),
               onTap: () => Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => HeartPulse())),
+                  .push(MaterialPageRoute(builder: (context) => HealthInfo())),
             ),
             Divider(),
             Column(
