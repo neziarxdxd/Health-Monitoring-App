@@ -84,6 +84,16 @@ class _DrawerNavigatonState extends State<DrawerNavigaton> {
               onTap: () => Navigator.of(context)
                   .push(MaterialPageRoute(builder: (context) => HeartPulse())),
             ),
+            ListTile(
+              leading: Icon(
+                Icons.card_membership,
+                size: 30,
+              ),
+              title: Text('Health Info',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25)),
+              onTap: () => Navigator.of(context)
+                  .push(MaterialPageRoute(builder: (context) => HeartPulse())),
+            ),
             Divider(),
             Column(
               children: _categoryList,
