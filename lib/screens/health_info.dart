@@ -41,6 +41,11 @@ class _HealthInfoState extends State<HealthInfo> {
                             "Weight: ",
                             style: TextStyle(fontSize: 20),
                           ),
+                        ),
+                        FlatButton(
+                          onPressed: () {},
+                          child: Text("Edit"),
+                          color: Colors.blue,
                         )
                       ],
                     ),
