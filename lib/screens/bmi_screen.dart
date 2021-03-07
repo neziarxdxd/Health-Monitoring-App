@@ -74,6 +74,9 @@ class _BMIScreenState extends State<BMIScreen> {
                       );
                     }).toList(),
                   ),
+                  SizedBox(
+                    height: 35,
+                  ),
                   FlatButton(
                     child: Text("Save Info"),
                     onPressed: () {},
