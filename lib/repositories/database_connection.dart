@@ -18,5 +18,7 @@ class DatabaseConnection {
     // Create table todos
     await database.execute(
         "CREATE TABLE todos(id INTEGER PRIMARY KEY, title TEXT, description TEXT, category TEXT, todoDate TEXT, isFinished INTEGER)");
+    await database.execute(
+        "CREATE TABLE bmi(id INTEGER PRIMARY KEY, weight integer, height integer, age integer, gender TEXT)");
   }
 }
