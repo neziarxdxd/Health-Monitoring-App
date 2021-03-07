@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:healthmonitor/screens/bmi_screen.dart';
 
 class HealthInfo extends StatefulWidget {
   @override
@@ -34,6 +35,7 @@ class _HealthInfoState extends State<HealthInfo> {
                         ListTile(
                           title: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               Text(
                                 "Height: ",
@@ -51,8 +53,14 @@ class _HealthInfoState extends State<HealthInfo> {
                                 "Age: ",
                                 style: TextStyle(fontSize: 20),
                               ),
+                              SizedBox(
+                                height: 15,
+                              ),
                               FlatButton(
-                                onPressed: () {},
+                                onPressed: () {
+                                  Navigator.of(context).push(MaterialPageRoute(
+                                      builder: (context) => BMIScreen()));
+                                },
                                 child: Text("Edit"),
                                 color: Colors.blue,
                               )
