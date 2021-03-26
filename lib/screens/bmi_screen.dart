@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:healthmonitor/models/bmi.dart';
+import 'package:healthmonitor/services/bmi_service.dart';
 
 class BMIScreen extends StatefulWidget {
   @override
@@ -7,6 +9,11 @@ class BMIScreen extends StatefulWidget {
 }
 
 class _BMIScreenState extends State<BMIScreen> {
+  var weightTextControl = TextEditingController();
+  var heightTextControl = TextEditingController();
+  var ageTextControl = TextEditingController();
+  var gender = TextEditingController();
+
   @override
   String dropdownValue = 'Male';
 
@@ -25,6 +32,7 @@ class _BMIScreenState extends State<BMIScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   TextField(
+                      controller: weightTextControl,
                       inputFormatters: <TextInputFormatter>[
                         FilteringTextInputFormatter.digitsOnly
                       ],
@@ -34,6 +42,7 @@ class _BMIScreenState extends State<BMIScreen> {
                         hintText: 'Write Weight in Kilogram',
                       )),
                   TextField(
+                      controller: heightTextControl,
                       inputFormatters: <TextInputFormatter>[
                         FilteringTextInputFormatter.digitsOnly
                       ],
@@ -43,6 +52,7 @@ class _BMIScreenState extends State<BMIScreen> {
                         hintText: 'Write Height in Centimeter',
                       )),
                   TextField(
+                      controller: ageTextControl,
                       inputFormatters: <TextInputFormatter>[
                         FilteringTextInputFormatter.digitsOnly
                       ],
@@ -79,7 +89,17 @@ class _BMIScreenState extends State<BMIScreen> {
                   ),
                   FlatButton(
                     child: Text("Save Info"),
-                    onPressed: () {},
+                    onPressed: () async {
+                      var bmiObject = BMI();
+                      bmiObject.age = int.parse(ageTextControl.text);
+                      bmiObject.weight = int.parse(weightTextControl.text);
+                      bmiObject.height = int.parse(heightTextControl.text);
+                      bmiObject.gender = dropdownValue;
+
+                      var bmiService = BMIService();
+                      var result = await bmiService.saveBMI(bmiObject);
+                      print(result);
+                    },
                     color: Colors.yellow,
                   ),
                 ],
