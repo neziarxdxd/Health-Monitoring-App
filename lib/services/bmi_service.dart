@@ -10,10 +10,10 @@ class BMIService {
 
   // Create data
   saveBMI(BMI bmi) async {
-    return await _repository.insertData('bmi', bmi.categoryMap());
+    return await _repository.insertData('body_mass', bmi.categoryMap());
   }
 
   readBMI() async {
-    return await _repository.readData('bmi');
+    return await _repository.readData('body_mass');
   }
 }
