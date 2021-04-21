@@ -36,8 +36,7 @@ class _DrawerNavigatonState extends State<DrawerNavigaton> {
                         category: category['name'],
                       ))),
           child: ListTile(
-            title: Text(category['name'],
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25)),
+            title: Text(category['name'], style: TextStyle(fontSize: 15)),
           ),
         ));
       });
@@ -52,7 +51,7 @@ class _DrawerNavigatonState extends State<DrawerNavigaton> {
           children: <Widget>[
             UserAccountsDrawerHeader(
               accountName: Text('Health Monitoring app',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25)),
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
               decoration: BoxDecoration(color: Colors.green),
               accountEmail: null,
             ),
@@ -62,7 +61,7 @@ class _DrawerNavigatonState extends State<DrawerNavigaton> {
                 size: 30,
               ),
               title: Text('Categories',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25)),
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
               onTap: () => Navigator.of(context).push(
                   MaterialPageRoute(builder: (context) => CategoriesScreen())),
             ),
@@ -72,7 +71,7 @@ class _DrawerNavigatonState extends State<DrawerNavigaton> {
                 size: 30,
               ),
               title: Text('Home',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25)),
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
               onTap: () => Navigator.of(context)
                   .push(MaterialPageRoute(builder: (context) => HomeScreen())),
             ),
@@ -82,7 +81,7 @@ class _DrawerNavigatonState extends State<DrawerNavigaton> {
                 size: 30,
               ),
               title: Text('Heart Pulse',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25)),
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
               onTap: () => Navigator.of(context)
                   .push(MaterialPageRoute(builder: (context) => HeartPulse())),
             ),
@@ -92,11 +91,18 @@ class _DrawerNavigatonState extends State<DrawerNavigaton> {
                 size: 30,
               ),
               title: Text('Health Tips',
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25)),
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18)),
               onTap: () => Navigator.of(context).push(
                   MaterialPageRoute(builder: (context) => ScreenHealth())),
             ),
             Divider(),
+            Padding(
+              padding: const EdgeInsets.only(left: 15.0),
+              child: Text(
+                "Categories",
+                style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+              ),
+            ),
             Column(
               children: _categoryList,
             ),

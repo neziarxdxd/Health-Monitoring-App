@@ -16,10 +16,6 @@ class _AppScreenState extends State<AppScreen> {
             children: [
               Text("Welcome to Health Monitoring Application",
                   style: TextStyle(fontSize: 40, fontWeight: FontWeight.w700)),
-              Image.asset(
-                "img/wallpaper.png",
-                scale: 2.0,
-              ),
             ],
           ),
         ),

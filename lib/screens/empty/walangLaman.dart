@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class EmptyTask extends StatefulWidget {
+class WalangLaman extends StatefulWidget {
   @override
-  _EmptyTaskState createState() => _EmptyTaskState();
+  _WalangLamanState createState() => _WalangLamanState();
 }
 
-class _EmptyTaskState extends State<EmptyTask> {
+class _WalangLamanState extends State<WalangLaman> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -13,12 +13,12 @@ class _EmptyTaskState extends State<EmptyTask> {
         child: ListView(
           children: [
             Image.asset(
-              "img/empty-1.png",
+              "img/empty-2.png",
               scale: 3,
             ),
             Center(
                 child: Text(
-              "Add Task by pressing the plus button",
+              "Empty",
               style: TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,

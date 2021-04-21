@@ -2,7 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:healthmonitor/models/category.dart';
 import 'package:healthmonitor/screens/empty/emptyCategory.dart';
-import 'package:healthmonitor/screens/empty/emptyTask.dart';
+
+import 'package:healthmonitor/screens/empty/emptycateg.dart';
 import 'package:healthmonitor/services/category_service.dart';
 
 import 'home_screen.dart';
