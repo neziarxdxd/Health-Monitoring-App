@@ -49,41 +49,43 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Text('Health monitoring App'),
       ),
       drawer: DrawerNavigaton(),
-      body: ListView.builder(
-          itemCount: _todoList.length,
-          itemBuilder: (context, index) {
-            return Padding(
-              padding: EdgeInsets.only(top: 16.0, left: 8.0, right: 8.0),
-              child: Container(
-                height: 100,
-                child: Card(
-                    elevation: 8,
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(0)),
-                    child: ListTile(
-                      title: Container(
-                        padding: EdgeInsets.only(top: 15),
-                        child: Text(
-                          _todoList[index].title ?? 'No Title',
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 25),
-                        ),
-                      ),
-                      subtitle: Text(
-                        _todoList[index].category ?? 'No Category',
-                        style: TextStyle(fontSize: 20),
-                      ),
-                      trailing: Container(
-                        padding: EdgeInsets.only(top: 15),
-                        child: Text(
-                          _todoList[index].todoDate ?? 'No Date',
-                          style: TextStyle(fontSize: 20),
-                        ),
-                      ),
-                    )),
-              ),
-            );
-          }),
+      body: _todoList.isNotEmpty
+          ? ListView.builder(
+              itemCount: _todoList.length,
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: EdgeInsets.only(top: 16.0, left: 8.0, right: 8.0),
+                  child: Container(
+                    height: 100,
+                    child: Card(
+                        elevation: 8,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(0)),
+                        child: ListTile(
+                          title: Container(
+                            padding: EdgeInsets.only(top: 15),
+                            child: Text(
+                              _todoList[index].title ?? 'No Title',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.bold, fontSize: 25),
+                            ),
+                          ),
+                          subtitle: Text(
+                            _todoList[index].category ?? 'No Category',
+                            style: TextStyle(fontSize: 20),
+                          ),
+                          trailing: Container(
+                            padding: EdgeInsets.only(top: 15),
+                            child: Text(
+                              _todoList[index].todoDate ?? 'No Date',
+                              style: TextStyle(fontSize: 20),
+                            ),
+                          ),
+                        )),
+                  ),
+                );
+              })
+          : Center(child: Text("Hi")),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.green,
         onPressed: () => Navigator.of(context)
