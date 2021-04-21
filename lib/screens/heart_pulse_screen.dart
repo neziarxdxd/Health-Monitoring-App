@@ -32,7 +32,7 @@ class HeartPulseScreenView extends State<HeartPulse>
   void initState() {
     super.initState();
     _animationController =
-        AnimationController(duration: Duration(milliseconds: 500), vsync: this);
+        AnimationController(duration: Duration(milliseconds: 500));
     _animationController
       ..addListener(() {
         setState(() {
