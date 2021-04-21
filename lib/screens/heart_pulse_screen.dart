@@ -55,6 +55,10 @@ class HeartPulseScreenView extends State<HeartPulse>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.green,
+        title: Text("Heart Pulse"),
+      ),
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Column(

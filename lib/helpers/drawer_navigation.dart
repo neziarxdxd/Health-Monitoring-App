@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:healthmonitor/screens/categories_screen.dart';
 import 'package:healthmonitor/screens/home_screen.dart';
+import 'package:healthmonitor/screens/screen_health.dart';
 import 'package:healthmonitor/screens/todos_by_category.dart';
 import 'package:healthmonitor/screens/heart_pulse_screen.dart';
 import 'package:healthmonitor/screens/health_info.dart';
@@ -87,13 +88,13 @@ class _DrawerNavigatonState extends State<DrawerNavigaton> {
             ),
             ListTile(
               leading: Icon(
-                Icons.card_membership,
+                Icons.ad_units_rounded,
                 size: 30,
               ),
-              title: Text('Health Info',
+              title: Text('Health Tips',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25)),
-              onTap: () => Navigator.of(context)
-                  .push(MaterialPageRoute(builder: (context) => HealthInfo())),
+              onTap: () => Navigator.of(context).push(
+                  MaterialPageRoute(builder: (context) => ScreenHealth())),
             ),
             Divider(),
             Column(

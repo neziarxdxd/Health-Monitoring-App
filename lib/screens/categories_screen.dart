@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:healthmonitor/models/category.dart';
+import 'package:healthmonitor/screens/empty/emptyCategory.dart';
+import 'package:healthmonitor/screens/empty/emptyTask.dart';
 import 'package:healthmonitor/services/category_service.dart';
 
 import 'home_screen.dart';
@@ -212,37 +214,40 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
         ),
         title: Text('Categories'),
       ),
-      body: ListView.builder(
-          itemCount: _categoryList.length,
-          itemBuilder: (context, index) {
-            return Padding(
-              padding: EdgeInsets.only(top: 8.0, left: 16.0, right: 16.0),
-              child: Card(
-                elevation: 8.0,
-                child: ListTile(
-                  leading: IconButton(
-                      icon: Icon(Icons.edit),
-                      onPressed: () {
-                        _editCategory(context, _categoryList[index].id);
-                      }),
-                  title: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(_categoryList[index].name),
-                      IconButton(
-                          icon: Icon(
-                            Icons.delete,
-                            color: Colors.red,
-                          ),
+      body: _categoryList.isNotEmpty
+          ? ListView.builder(
+              itemCount: _categoryList.length,
+              itemBuilder: (context, index) {
+                return Padding(
+                  padding: EdgeInsets.only(top: 8.0, left: 16.0, right: 16.0),
+                  child: Card(
+                    elevation: 8.0,
+                    child: ListTile(
+                      leading: IconButton(
+                          icon: Icon(Icons.edit),
                           onPressed: () {
-                            _deleteFormDialog(context, _categoryList[index].id);
-                          })
-                    ],
+                            _editCategory(context, _categoryList[index].id);
+                          }),
+                      title: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Text(_categoryList[index].name),
+                          IconButton(
+                              icon: Icon(
+                                Icons.delete,
+                                color: Colors.red,
+                              ),
+                              onPressed: () {
+                                _deleteFormDialog(
+                                    context, _categoryList[index].id);
+                              })
+                        ],
+                      ),
+                    ),
                   ),
-                ),
-              ),
-            );
-          }),
+                );
+              })
+          : EmptyCategory(),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.green,
         onPressed: () {

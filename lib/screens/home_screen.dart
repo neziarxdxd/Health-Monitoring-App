@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:healthmonitor/helpers/drawer_navigation.dart';
 import 'package:healthmonitor/models/todo.dart';
+import 'package:healthmonitor/screens/empty/emptyCategory.dart';
 import 'package:healthmonitor/screens/todo_screen.dart';
 import 'package:healthmonitor/services/todo_service.dart';
 
@@ -85,7 +86,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 );
               })
-          : Center(child: Text("Hi")),
+          : EmptyTask(),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.green,
         onPressed: () => Navigator.of(context)
