@@ -24,6 +24,13 @@ class _ScreenHealthState extends State<ScreenHealth> {
             SizedBox(
               height: 30,
             ),
+            Center(
+              child: Text("Weekly Health Tips",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
+            ),
+            SizedBox(
+              height: 30,
+            ),
             WidgetCard(
               imageSource: "img/img1.jpg",
               leadingTitle: "1",

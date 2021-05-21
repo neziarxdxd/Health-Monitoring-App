@@ -1,5 +1,5 @@
 # healthmonitor
-
+DOWNLOAD HERE: https://github.com/smphrai/health-monitor-3/blob/main/RELEASED/app-release.apk?raw=true
 A new Flutter project.
 
 ## Getting Started

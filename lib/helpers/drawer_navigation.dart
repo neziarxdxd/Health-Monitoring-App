@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:healthmonitor/models/todo.dart';
 import 'package:healthmonitor/screens/categories_screen.dart';
 import 'package:healthmonitor/screens/home_screen.dart';
 import 'package:healthmonitor/screens/screen_health.dart';
@@ -6,6 +7,7 @@ import 'package:healthmonitor/screens/todos_by_category.dart';
 import 'package:healthmonitor/screens/heart_pulse_screen.dart';
 import 'package:healthmonitor/screens/health_info.dart';
 import 'package:healthmonitor/services/category_service.dart';
+import 'package:healthmonitor/services/todo_service.dart';
 
 class DrawerNavigaton extends StatefulWidget {
   @override
@@ -13,9 +15,9 @@ class DrawerNavigaton extends StatefulWidget {
 }
 
 class _DrawerNavigatonState extends State<DrawerNavigaton> {
-  List<Widget> _categoryList = List<Widget>();
+  List<Widget> _todoLissst = List<Widget>();
 
-  CategoryService _categoryService = CategoryService();
+  TodoService _todoService = TodoService();
 
   @override
   initState() {
@@ -24,19 +26,13 @@ class _DrawerNavigatonState extends State<DrawerNavigaton> {
   }
 
   getAllCategories() async {
-    var categories = await _categoryService.readCategories();
+    var categories = await _todoService.readTodos();
 
     categories.forEach((category) {
       setState(() {
-        _categoryList.add(InkWell(
-          onTap: () => Navigator.push(
-              context,
-              new MaterialPageRoute(
-                  builder: (context) => new TodosByCategory(
-                        category: category['name'],
-                      ))),
+        _todoLissst.add(InkWell(
           child: ListTile(
-            title: Text(category['name'], style: TextStyle(fontSize: 15)),
+            title: Text(category['title'], style: TextStyle(fontSize: 15)),
           ),
         ));
       });
@@ -99,12 +95,12 @@ class _DrawerNavigatonState extends State<DrawerNavigaton> {
             Padding(
               padding: const EdgeInsets.only(left: 15.0),
               child: Text(
-                "Categories",
+                "Maintenance Medicine",
                 style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
               ),
             ),
             Column(
-              children: _categoryList,
+              children: _todoLissst,
             ),
           ],
         ),

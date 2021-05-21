@@ -1,0 +1,31 @@
+Change Categories to Maintenance in Home
+Alert Check (Notification not working)
+Display History
+Weekly Tips (Dynamic - Weekly Changes)
+Monthly Maintenance (Display)
+
+
+initState() {
+    super.initState();
+    getAllTodos();
+  }
+
+  getAllTodos() async {
+    _todoService = TodoService();
+    _todoList = List<Todo>();
+
+    var todos = await _todoService.readTodos();
+
+    todos.forEach((todo) {
+      setState(() {
+        var model = Todo();
+        model.id = todo['id'];
+        model.title = todo['title'];
+        model.description = todo['description'];
+        model.category = todo['category'];
+        model.todoDate = todo['todoDate'];
+        model.isFinished = todo['isFinished'];
+        _todoList.add(model);
+      });
+    });
+  }
